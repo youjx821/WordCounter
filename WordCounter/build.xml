@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="compile" basedir=".">
+	
+	<property name="destdir" value="classes"></property>
+	<property name="jardir" value="jar"></property>
+	<property name="softname" value="WordCounter"></property>
+	
+	<target name="init">
+		<mkdir dir="${destdir}"/>
+		<mkdir dir="${jardir}"/>
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac srcdir="src" destdir="${destdir}"></javac>
+	</target>
+	
+	<target name="createJar" depends="compile">
+		<tstamp></tstamp>
+		<jar destfile="${jardir}/${softname}-${DSTAMP}.jar" basedir="${destdir}">
+			<manifest>
+				<attribute name="Build-By" value="${user.name}"/>
+				<attribute name="Main-Class" value="WordCounter"/>
+			</manifest>
+		</jar>
+	</target>
+
+</project>

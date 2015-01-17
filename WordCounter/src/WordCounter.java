@@ -60,10 +60,10 @@ public class WordCounter {
         JMenuBar menuBar = new JMenuBar();
         frmWordcounter.setJMenuBar(menuBar);
  
-        JMenu mnNewMenu = new JMenu("ÎÄ¼ş");
+        JMenu mnNewMenu = new JMenu("æ–‡ä»¶");
         menuBar.add(mnNewMenu);
  
-        JMenuItem mntmNewMenuItem = new JMenuItem("ÍË³ö");
+        JMenuItem mntmNewMenuItem = new JMenuItem("é€€å‡º");
         mnNewMenu.add(mntmNewMenuItem);
         mntmNewMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -82,7 +82,7 @@ public class WordCounter {
         textArea.setLineWrap(true);
         scrollPane.setViewportView(textArea);
  
-        JButton button = new JButton("·ÖÎö");
+        JButton button = new JButton("åˆ†æ");
         button.setBounds(407, 241, 70, 40);
         frmWordcounter.getContentPane().add(button);
         button.addActionListener(new ActionListener() {
@@ -92,8 +92,8 @@ public class WordCounter {
                 String str = textArea.getText();
                 if(str != null || !"".equals(str)){
                     List<Map.Entry<String, Integer>> list = func(str);
-                    DefaultTableModel dtm = (DefaultTableModel) table.getModel();//»ñµÃ±í¸ñÄ£ĞÍ
-                    dtm.setRowCount(0);//Çå¿Õ±í¸ñÊı¾İ
+                    DefaultTableModel dtm = (DefaultTableModel) table.getModel();//è·å¾—è¡¨æ ¼æ¨¡å‹
+                    dtm.setRowCount(0);//æ¸…ç©ºè¡¨æ ¼æ•°æ®
                     for(Map.Entry<String, Integer> mapEntry : list){
                         System.out.println(mapEntry.toString());
                         dtm.addRow(new Object[]{mapEntry.getKey(), mapEntry.getValue()});
@@ -106,7 +106,7 @@ public class WordCounter {
         scrollPane_1.setBounds(484, 0, 300, 541);
         frmWordcounter.getContentPane().add(scrollPane_1);
  
-        String[] columnNames = {"µ¥´Ê", "³öÏÖ´ÎÊı"};
+        String[] columnNames = {"å•è¯", "å‡ºç°æ¬¡æ•°"};
 //        String[][] tableValues = {{"A1", "B1"}, {"A2", "B2"}, {"A3", "B3"}};
         DefaultTableModel dtm = new DefaultTableModel(null, columnNames);
         table = new JTable(dtm);
@@ -118,7 +118,7 @@ public class WordCounter {
         String[] strs = str.split("[^a-zA-Z]");
         Map<String, Integer> map = new HashMap<String, Integer>();
         for(String s : strs){
-            if(!"".equals(s)){//s²»ÄÜÎª¿Õ
+            if(!"".equals(s)){//sä¸èƒ½ä¸ºç©º
                 if(map.keySet().contains(s)){
                     map.put(s, map.get(s)+1);
                 }else{
@@ -132,7 +132,7 @@ public class WordCounter {
                 if(!o2.getValue().equals(o1.getValue())){
                     return o2.getValue() - o1.getValue();
                 }else{
-                    return o1.getKey().compareToIgnoreCase(o2.getKey());//ºöÂÔ´óĞ¡Ğ´
+                    return o1.getKey().compareToIgnoreCase(o2.getKey());//å¿½ç•¥å¤§å°å†™
                 }
             }
         });
